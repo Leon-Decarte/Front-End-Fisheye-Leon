@@ -47,4 +47,18 @@ h1 {
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.photographer_section article p {
+    margin: 0;
+}
+
+.photographer_section article h3 {
+    margin: 0;
+}
+
+.photographer__card {
+    text-decoration: none;
 }
