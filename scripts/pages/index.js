@@ -14,7 +14,7 @@ class App {
         photographersJson.forEach(element => {
             const photographer=new Photographer(element);
             const photographerTemplate=new PhotographerTemplate(photographer);
-            photographersSection.appendChild(photographerTemplate.render());
+            photographersSection.appendChild(photographerTemplate.renderCardForIndex());
         });
 
     }

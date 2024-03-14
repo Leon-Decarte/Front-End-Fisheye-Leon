@@ -9,7 +9,11 @@ export class PhotographerApi {
     async getPhotographers() {
         const response=await this.api.fetchApi();
         return response.photographers;
-        
+    }
+
+    async getOnePhotographer(id) {
+        const photographersJson=await this.getPhotographers();
+        return photographersJson.filter(p => p.id==id)[0];
     }
 }
 

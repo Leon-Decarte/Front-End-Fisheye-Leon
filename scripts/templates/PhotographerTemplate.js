@@ -5,7 +5,7 @@ export class PhotographerTemplate {
         this.photographer=photographer;
     }
 
-    render() {
+    renderCardForIndex() {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src",'assets/photographers/'+ this.photographer.portrait)
@@ -33,4 +33,69 @@ export class PhotographerTemplate {
 
         return (photographerLink);
     }
+
+    renderCardForPhotographerContent1() {
+        const article = document.createElement( 'article' );
+        
+        
+        const h1 = document.createElement( 'h1' );
+        h1.textContent = this.photographer.name;
+    /*    const photographerLocation = document.createElement( '.photographer_location' );
+        photographerLocation.textContent = this.photographer.city + ',' + this.photographer.country;
+        const tagline = document.createElement( 'p' );
+        tagline.textContent = this.photographer.tagline;
+        
+        const img = document.createElement( 'img' );
+        img.setAttribute("src",'assets/photographers/'+ this.photographer.portrait)
+        
+        const photographerHeader = document.querySelector(".photographerHeader")
+        
+        const contactButton = document.querySelector('.contact_button')
+
+        */
+       //        article.appendChild(photographerLocation);
+        article.appendChild(h1);
+        /*article.appendChild(tagline);
+        photographerHeader.appendChild(img);
+
+        photographerHeader.appendChild(article);    
+        photographerHeader.appendChild(contactButton);
+
+*/
+
+
+        return (article);
+    }
+    renderCardForPhotographerContent2() {
+        const article = document.createElement( 'article' );
+        
+        const h1 = document.createElement( 'h1' );
+        h1.textContent = this.photographer.name;
+    /*    const photographerLocation = document.createElement( '.photographer_location' );
+        photographerLocation.textContent = this.photographer.city + ',' + this.photographer.country;
+        const tagline = document.createElement( 'p' );
+        tagline.textContent = this.photographer.tagline;
+        
+        const img = document.createElement( 'img' );
+        img.setAttribute("src",'assets/photographers/'+ this.photographer.portrait)
+        
+        const photographerHeader = document.querySelector(".photographerHeader")
+        
+        const contactButton = document.querySelector('.contact_button')
+
+        */
+       //        article.appendChild(photographerLocation);
+        article.appendChild(h1);
+        /*article.appendChild(tagline);
+        photographerHeader.appendChild(img);
+
+        photographerHeader.appendChild(article);    
+        photographerHeader.appendChild(contactButton);
+
+*/
+
+
+        return (article);
+    }
+
 }

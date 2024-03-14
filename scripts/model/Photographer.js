@@ -12,10 +12,11 @@ export class Photographer {
         this.country= country;
         this.tagline= tagline;
         this.price= price;
+    }
 
-
-
-        //todo faire les autres variables
+    getFirstName() {
+        let firstName= (this.name.split(' '))[0]; 
+        return firstName.replace('-',' ');
     }
 
 }
