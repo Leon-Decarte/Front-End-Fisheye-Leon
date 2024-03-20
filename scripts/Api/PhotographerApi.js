@@ -13,7 +13,10 @@ export class PhotographerApi {
 
     async getOnePhotographer(id) {
         const photographersJson=await this.getPhotographers();
-        return photographersJson.filter(p => p.id==id)[0];
+        let datas=photographersJson.filter(p => p.id==id)[0];
+        console.log('getOnePhotographer');
+        console.log(datas);
+        return datas;
     }
 }
 

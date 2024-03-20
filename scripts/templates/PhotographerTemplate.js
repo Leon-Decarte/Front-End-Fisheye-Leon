@@ -35,11 +35,19 @@ export class PhotographerTemplate {
     }
 
     renderCardForPhotographerContent1() {
-        const article = document.createElement( 'article' );
+
         
-        
+        const div =document.createElement('div');
         const h1 = document.createElement( 'h1' );
         h1.textContent = this.photographer.name;
+        const photographerLocation = document.createElement('div');
+        photographerLocation.classList.add('photographer__content')
+        photographerLocation.textContent = this.photographer.city + ',' + this.photographer.country;
+        const tagline = document.createElement( 'p' );
+        tagline.textContent = this.photographer.tagline;
+        
+
+
     /*    const photographerLocation = document.createElement( '.photographer_location' );
         photographerLocation.textContent = this.photographer.city + ',' + this.photographer.country;
         const tagline = document.createElement( 'p' );
@@ -54,7 +62,14 @@ export class PhotographerTemplate {
 
         */
        //        article.appendChild(photographerLocation);
-        article.appendChild(h1);
+
+
+       div.appendChild(h1);
+       div.appendChild(photographerLocation);    
+       div.appendChild(tagline);
+
+       return div;
+
         /*article.appendChild(tagline);
         photographerHeader.appendChild(img);
 
@@ -64,13 +79,11 @@ export class PhotographerTemplate {
 */
 
 
-        return (article);
     }
     renderCardForPhotographerContent2() {
         const article = document.createElement( 'article' );
         
-        const h1 = document.createElement( 'h1' );
-        h1.textContent = this.photographer.name;
+    
     /*    const photographerLocation = document.createElement( '.photographer_location' );
         photographerLocation.textContent = this.photographer.city + ',' + this.photographer.country;
         const tagline = document.createElement( 'p' );
@@ -85,7 +98,6 @@ export class PhotographerTemplate {
 
         */
        //        article.appendChild(photographerLocation);
-        article.appendChild(h1);
         /*article.appendChild(tagline);
         photographerHeader.appendChild(img);
 
