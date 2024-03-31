@@ -5,6 +5,25 @@ import { Photographer } from "../model/Photographer.js";
 import { PhotographerTemplate } from "../templates/PhotographerTemplate.js";
 import { MediaTemplate } from "../templates/MediaTemplate.js";
 import { MediaFactory } from "../factory/MediaFactory.js";
+import { ContactForm } from "../utils/contactForm.js";
+
+
+// Instantiate ContactForm class
+const contactForm = new ContactForm();
+
+// Get the button element
+const contactButton = document.querySelector(".contact_button");
+const closeButton = document.querySelector(".close_button");
+
+closeButton.addEventListener("click", function() {
+    contactForm.closeModal();
+});
+// Add event listener to the button
+
+contactButton.addEventListener("click", function() {
+    contactForm.displayModal();
+});
+
 
 class App {
     constructor() {

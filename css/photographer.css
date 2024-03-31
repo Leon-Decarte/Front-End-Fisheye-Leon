@@ -1,5 +1,16 @@
 #contact_modal {
     display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* semi-transparent black background */
+    z-index: 9999;
+    /* ensure it's on top of other content */
 }
 
 .photograph-header {
@@ -25,12 +36,13 @@
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    max-width: 700px;
+    /* Optional: Limit the maximum width of the modal */
     padding: 35px;
-    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .modal header {
@@ -73,4 +85,52 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+.photograph-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-img {
+    width: 200px;
+    height: 200px;
+    position: relative;
+
+}
+
+.photographer__content2 .header-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+
+}
+
+form textarea {
+    width: 100%;
+    height: 150px;
+    resize: vertical;
+}
+
+
+.photographer-media{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.photographer-media div  {
+    width: 800px;
+    margin: 20px;
+    border: #901C1C solid 5px;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 400px;
+}
+
+.photographer-media div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
