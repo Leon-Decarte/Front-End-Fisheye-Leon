@@ -115,12 +115,13 @@ form textarea {
 }
 
 
-.photographer-media{
+.photographer-media {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.photographer-media div  {
+
+.photographer-media div {
     width: 800px;
     margin: 20px;
     border: #901C1C solid 5px;
@@ -133,4 +134,34 @@ form textarea {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    display: none;
+    /* Initially hide error messages */
+    margin-top: 5px;
+}
+
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.4em;
+    color: #e54858;
+    display: block;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-align: right;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+    display: flex;
+}
+
+.formData[data-error-visible="true"]::after {
+    opacity: 1;
+}
+
+.formData[data-error-visible="true"] .text-control {
+    border: 2px solid #e54858;
 }

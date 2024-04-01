@@ -8,27 +8,12 @@ import { MediaFactory } from "../factory/MediaFactory.js";
 import { ContactForm } from "../utils/contactForm.js";
 
 
-// Instantiate ContactForm class
-const contactForm = new ContactForm();
-
-// Get the button element
-const contactButton = document.querySelector(".contact_button");
-const closeButton = document.querySelector(".close_button");
-
-closeButton.addEventListener("click", function() {
-    contactForm.closeModal();
-});
-// Add event listener to the button
-
-contactButton.addEventListener("click", function() {
-    contactForm.displayModal();
-});
-
 
 class App {
     constructor() {
         this.photographerApi=new PhotographerApi();
         this.mediaApi=new MediaApi();
+        this.contactForm = new ContactForm();
     }
 
     async init() {
@@ -56,9 +41,11 @@ class App {
 
             const photographersContent1 = document.querySelector(".photographer__content1");
             const photographersContent2 = document.querySelector(".photographer__content2");
-            
             const photographerModel=new Photographer(this.photographerDatas);
             const photographerTemplate=new PhotographerTemplate(photographerModel);
+
+            
+            this.contactForm.render(photographerModel);
 
             console.log(photographersContent1)
             console.log(photographerTemplate.renderCardForPhotographerContent1())
