@@ -1,6 +1,6 @@
 export class ContactForm {
 	constructor() {
-		
+
 	}
 
 	initEvent() {
@@ -25,23 +25,23 @@ export class ContactForm {
 		*/
 		const contactButton = document.querySelector(".contact_button");
 		const closeButton = document.querySelector(".close_button");
-
+		const ValidateButton = document.getElementById("form_submit")
 		// Add event listener to the button
 
 		contactButton.addEventListener("click", (e) => { this.displayModal(e); });
 		closeButton.addEventListener("click", (e) => { this.closeModal(e); });
+		ValidateButton.addEventListener("click", (e) => { this.closeModal(e); });
 	}
 
 
 	render(photographerModel) {
-		const title=document.getElementById("contact_title");
-		title.innerText="Contactez-moi "+ photographerModel.name;
+		const title = document.getElementById("contact_title");
+		title.innerText = "Contactez-moi " + photographerModel.name;
 
 		this.initEvent();
 	}
 
 	checkFirstName() {
-		console.log('checkFirstName');
 		return this.checkInput("prenom", "Le prénom est incorrect");
 	}
 	checkLastName() {
@@ -59,37 +59,41 @@ export class ContactForm {
 	}
 
 
-	isMail(inputId, errorMessage) {
-		const input = document.getElementById(inputId);
-		this.hideMessageError(input);
-		if (!input.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-			this.showMessageError(input, errorMessage);
-			return false;
-		}
-		return true;
-	}
+	isMail(input, errorMessage) {
+        const inputElement = document.getElementById(input);
+        this.hideMessageError(inputElement);
+        if (!inputElement.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+            this.showMessageError(inputElement, errorMessage);
+            return false;
+        }
+        return true;
+    }
 
+    checkInput(input, errorMessage) {
+        const inputElement = document.getElementById(input);
+        this.hideMessageError(inputElement);
 
-	checkInput(inputId, errorMessage) {
-		const input = document.getElementById(inputId);
-		this.hideMessageError(input);
-		if (input.value === "" || input.value == null || input.value.length <= 2) {
-			this.showMessageError(input, errorMessage);
-			return false;
-		}
-		return true;
-	}
+        if (inputElement.value === "" || inputElement.value == null || inputElement.value.length <= 2) {
+            this.showMessageError(inputElement, errorMessage);
+            return false;
+        }
+        return true;
+    }
 
-	hideMessageError(input) {
-		let parent = input.parentElement;
-		parent.setAttribute('data-error-visible', 'false');
-	}
+    hideMessageError(inputElement) {
+        const errorSpan = document.getElementById(inputElement.id + "_error");
+        if (errorSpan) {
+            errorSpan.style.display = 'none';
+        }
+    }
 
-	showMessageError(input, message) {
-		let parent = input.parentElement;
-		parent.setAttribute('data-error', message);
-		parent.setAttribute('data-error-visible', 'true');
-	}
+    showMessageError(inputElement, message) {
+        const errorSpan = document.getElementById(inputElement.id + "_error");
+        if (errorSpan) {
+            errorSpan.innerText = message;
+            errorSpan.style.display = 'block';
+        }
+    }
 
 	checkForm() {
 		if (this.checkFirstName() && this.checkLastName() && this.checkEmail()) {
@@ -101,6 +105,8 @@ export class ContactForm {
 
 		}
 	}
+
+
 
 	initForm() {
 		this.enabledBtnSubmit(false); // Désactiver le bouton de soumission au chargement de la page
