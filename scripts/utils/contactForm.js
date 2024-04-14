@@ -15,6 +15,9 @@ export class ContactForm {
 
 		const email = document.getElementById("email")
 		email.addEventListener("keyup", (e) => { this.checkForm(e); });
+
+		const message = document.getElementById("message")
+		message.addEventListener("keyup", (e) => { this.checkForm(e); })
 		/*
 				this.checkFirstName();
 				this.checkLastName();
@@ -58,6 +61,9 @@ export class ContactForm {
 		return this.isMail("email", "Le format du mail est incorrect");
 	}
 
+	checkMessage(){
+		return this.checkInput("message", "Pas de message");
+	}
 
 	isMail(input, errorMessage) {
         const inputElement = document.getElementById(input);
@@ -96,7 +102,7 @@ export class ContactForm {
     }
 
 	checkForm() {
-		if (this.checkFirstName() && this.checkLastName() && this.checkEmail()) {
+		if (this.checkFirstName() && this.checkLastName() && this.checkEmail() && this.checkMessage()) {
 			this.enabledBtnSubmit(true);
 			console.log("ça marche")
 		} else {

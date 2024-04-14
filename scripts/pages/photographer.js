@@ -6,6 +6,7 @@ import { PhotographerTemplate } from "../templates/PhotographerTemplate.js";
 import { MediaTemplate } from "../templates/MediaTemplate.js";
 import { MediaFactory } from "../factory/MediaFactory.js";
 import { ContactForm } from "../utils/contactForm.js";
+import { Lightbox } from "../utils/Lightbox.js";
 
 
 
@@ -22,6 +23,7 @@ class App {
         this.photographerDatas=await  this.photographerApi.getOnePhotographer(id);
         this.mediasDatas=await this.mediaApi.getMediasForOnePhotographer(id);
         
+        this.lightbox=new Lightbox(this.mediasDatas);
         this.render();
 
     /* 
@@ -44,11 +46,8 @@ class App {
             const photographerModel=new Photographer(this.photographerDatas);
             const photographerTemplate=new PhotographerTemplate(photographerModel);
 
-            
             this.contactForm.render(photographerModel);
 
-            console.log(photographersContent1)
-            console.log(photographerTemplate.renderCardForPhotographerContent1())
             photographersContent1.appendChild(photographerTemplate.renderCardForPhotographerContent1());
             photographersContent2.appendChild(photographerTemplate.renderCardForPhotographerContent2());
 
@@ -57,9 +56,11 @@ class App {
             const mediaContent = document.querySelector(".photographer-media");
             this.mediasDatas.forEach(mediaData => {
                 const mediaModel=(new MediaFactory(mediaData,photographerModel )).getMedia();
-                const mediaTemplate=new MediaTemplate(mediaModel);
+                const mediaTemplate=new MediaTemplate(mediaModel, this.lightbox);
                 mediaContent.appendChild(mediaTemplate.renderCard());
             });
+
+            //light
     }
 
     getId() {
