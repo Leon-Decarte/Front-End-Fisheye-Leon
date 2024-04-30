@@ -1,3 +1,4 @@
+
 #contact_modal {
     display: none;
     justify-content: center;
@@ -117,6 +118,66 @@ input[type="email"] {
 
 }
 
+
+/* reset CSS */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  
+  /* Positionnement du dropDown */
+  .dropDown{
+    position:relative;
+    width:170px;
+  }
+  
+  /*  Réglage du résumé quand dropdown fermé */
+  .dropDown>summary {
+    list-style:none;
+    background: #901C1C;
+    color:white;
+    text-transform:capitalize;
+    padding:10px 20px;
+    border-radius: 5px;
+    display:flex;
+    justify-content:space-between;
+  }
+  
+  /*  Réglage du dropDown ouvert */
+  .dropDown>.options {
+    position:absolute;
+    color:white;
+    overflow:hidden;
+    top:0;
+    left:0;
+    border-radius: 5px;
+    width:100%;
+    height:fit-content;
+    background: #901C1C;
+  }
+  .dropDown>.options>* {
+    position:relative;
+    padding:10px 20px;
+    text-transform:capitalize;
+    display:flex;
+    justify-content:space-between;
+  }
+  .dropDown>.options>*::after {
+    content:"";
+    position:absolute;
+    display:block;
+    width:calc(100% - 40px);
+    bottom:0;
+    left:20px;
+    margin:0 auto;
+    height:1px;
+    background:white;
+  }
+  .dropDown>.options>*:last-child::after {
+    display:none;
+  }
+
 .photographer__content2 .header-img img {
     width: 100%;
     height: 100%;
@@ -146,9 +207,16 @@ form textarea {
     border-radius: 20px;
     overflow: hidden;
     height: 400px;
+    cursor: pointer;
 }
 
 .photographer-media div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photographer-media div video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -163,11 +231,8 @@ form textarea {
 
 
 .photographer__content2 {
-    display: grid;
-    grid-template-columns: repeat(3, 200px);
-    justify-content: center;
+
     align-content: center;
-    grid-gap: 10px;
     height: 100vh;
 }
 
@@ -177,18 +242,120 @@ form textarea {
     cursor: pointer;
 }
 
+
+
 /* Lightbox container */
-.lightbox {
+#lightbox {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Couvrir toute la largeur de la vue */
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
     z-index: 9999; /* Ensure it's above other elements */
-    overflow: auto;
+    overflow: hidden;
     text-align: center;
+    margin: 0;
+    
+}
+
+#lightbox .media-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Ajuster la largeur de la div parent */
+    height: 80%; /* Ajuster la hauteur de la div parent */
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center;
+    overflow: hidden; /* Empêcher le contenu de déborder */
+    }
+.media-container {
+    overflow: hidden; /* Empêcher le contenu de déborder */
+    max-width: 80%; /* Limiter la largeur du média à 80% de la largeur de la vue */
+    margin: 0 auto; /* Centrer horizontalement le média */
+}
+
+.media-container img,
+.media-container video {
+    max-width: 100%; /* Assurer que les images et vidéos ne dépassent pas la largeur de la div parent */
+    max-height: 100%; /* Assurer que les images et vidéos ne dépassent pas la hauteur de la div parent */
+    object-fit: contain; /* Ajuster la taille de l'image pour s'adapter à la div parent */
+
+}
+
+.closeLightbox {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 50px;
+    top: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.closeLightbox:hover{
+    opacity: 1;
+}
+.closeLightbox .close-icon {
+    /* Styles spécifiques à l'icône de fermeture */
+    margin-top: 0; /* Réinitialisez la marge supérieure si nécessaire */
+}
+.closeIcon img {
+    margin: 0;
+    width: 50px;
+    height: 50px;
+}
+
+
+/*creation du bouton précédent*/
+.button_prev {
+    position: fixed;
+    width: 10%;
+    height: 70%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
+    flex: 1; /* Prendre l'espace disponible de manière égale */
+
+}
+.button_prev:hover{
+    opacity: 1;
+}
+
+/*creation du bouton suivant*/
+.button_next {
+    position: fixed;
+    width: 10%;
+    height: 70%;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
+    flex: 1; /* Prendre l'espace disponible de manière égale */
+
+}
+.button_next:hover{
+    opacity: 1;
 }
 
 /* Close button */
@@ -197,30 +364,7 @@ form textarea {
     top: 20px;
     right: 20px;
     font-size: 30px;
-    color: #fff;
     cursor: pointer;
-}
-
-/* Navigation buttons */
-.prev-btn,
-.next-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 30px;
-    color: #fff;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 999; /* Ensure it's above other elements */
-}
-
-.prev-btn {
-    left: 20px;
-}
-
-.next-btn {
-    right: 20px;
 }
 
 

@@ -19,7 +19,7 @@ export class ImageModel {
 
 
 
-    getRenderHtml () {
+    getRenderMedia () {
         const img=document.createElement('img');
         img.src=this.url;
         img.alt = this.title;

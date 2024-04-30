@@ -15,7 +15,7 @@ export class VideoModel {
         this.url = `./assets/photographers/${photographerModel.getFirstName()}/${video}`;
     }
 
-    getRenderHtml () {
+    getRenderMedia () {
         const video=document.createElement('video');
         video.src = this.url;
         video.controls = true;

@@ -9,7 +9,6 @@ import { ContactForm } from "../utils/contactForm.js";
 import { Lightbox } from "../utils/Lightbox.js";
 
 
-
 class App {
     constructor() {
         this.photographerApi=new PhotographerApi();
@@ -23,7 +22,8 @@ class App {
         this.photographerDatas=await  this.photographerApi.getOnePhotographer(id);
         this.mediasDatas=await this.mediaApi.getMediasForOnePhotographer(id);
         
-        this.lightbox=new Lightbox(this.mediasDatas);
+        const photographerModel=new Photographer(this.photographerDatas);
+        this.lightbox=new Lightbox(this.mediasDatas, photographerModel);
         this.render();
 
     /* 
