@@ -59,9 +59,19 @@
       </div>
     </div>
     
-    <section class="photographer-media">
-
+    <section class="media__section">
+      <div class="div__sortBy"><p>Trier par</p>
+      <details class="dropDown" data-value="popularity">
+        <summary><span class="value">popularité</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="options">
+          <div id="sort-by-likes">popularité <i class="fa-solid fa-chevron-up" id="masque"></i></div>
+          <div id="sort-by-date">date</div>
+          <div id="sort-by-title">titre</div>
+        </div>
+      </details></div>
+      <div class="photographer-media"></div>
     </section>
+    
   </main>
 
   <script type="module" src="/scripts/pages/photographer.js"></script>
