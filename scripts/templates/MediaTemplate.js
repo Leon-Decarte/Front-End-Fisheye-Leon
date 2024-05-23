@@ -8,6 +8,8 @@ export class MediaTemplate {
     renderCard() {
         const div = document.createElement('div');
         div.classList.add('media-card');
+        div.tabIndex = 0; // Make the media-card focusable
+
 
         // Créer un div pour encapsuler le média
         const mediaContainer = document.createElement('div');
@@ -35,6 +37,7 @@ export class MediaTemplate {
         likesContainer.appendChild(likes);
 
         const heartIcon = document.createElement('img');
+        heartIcon.tabIndex = 0;
         heartIcon.src = '../assets/icons/heart.svg';
         heartIcon.alt = 'Heart';
         heartIcon.dataset.id = this.mediaModel.id;

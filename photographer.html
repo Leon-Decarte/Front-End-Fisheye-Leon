@@ -1,81 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-  <title>Fisheye - photographe </title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <title>Fisheye - photographe </title>
 </head>
 
 <body>
-  <header>
-    <img src="assets/images/logo.png" class="logo" />
-  </header>
-  <main id="main">
-    <div class="photograph-header">
-      <div class="photographer__content1">
-        <!--nom... du photographe-->
-      </div>
-      <button class="contact_button">Contactez-moi</button>
-      <div id="contact_modal">
-        <div class="modal">
-          <header>
-            <h2 id="contact_title">Contactez-moi <br /></h2>
-            <img src="assets/icons/close.svg" class="close_button" />
-          </header>
-          <form>
-            <div class="formDATA">
-              <label for="prenom">Prénom</label>
-              <input type="text" id="prenom" name="prenom" />
-              <span class="error" id="prenom_error"></span>
-
+    <header>
+        <img src="assets/images/logo.png" class="logo" alt="Le Logo de Fisheye" />
+    </header>
+    <main id="main">
+        <div class="photograph-header">
+            <div class="photographer__content1">
+                <!--nom... du photographe-->
             </div>
-            <div class="formDATA">
-              <label for="nom">Nom</label>
-              <input type="text" id="nom" name="nom" />
-              <span class="error" id="nom_error"></span>
+            <button class="contact_button" aria-controls="contact_modal" aria-expanded="false">Contactez-moi</button>
+            <div id="contact_modal" role="dialog" aria-labelledby="contact_title" aria-hidden="true">
+                <div class="modal">
+                    <header>
+                        <h2 id="contact_title">Contactez-moi <br /></h2>
+                        <button aria-label="Fermer le formulaire de contact" class="close_button">
+                            <img src="assets/icons/close.svg" alt="Fermer" />
+                        </button>
+                    </header>
+                    <form>
+                        <div class="formDATA">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" id="prenom" name="prenom" aria-label="Ecrivez ici le prénom"/>
+                            <span class="error" id="prenom_error"></span>
 
-            </div>
-            <div class="formDATA">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" />
-              <span class="error" id="email_error"></span>
+                        </div>
+                        <div class="formDATA">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" aria-label="Ecrivez ici le nom de famille" />
+                            <span class="error" id="nom_error"></span>
 
-            </div>
-            <div class="formDATA">
-              <label for="message">Votre message</label>
-              <textarea id="message" name="message"></textarea>
-              <span class="error" id="message_error"></span>
+                        </div>
+                        <div class="formDATA">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email"  aria-label="Ecrivez ici l'email"/>
+                            <span class="error" id="email_error"></span>
 
+                        </div>
+                        <div class="formDATA">
+                            <label for="message">Votre message</label>
+                            <textarea id="message" name="message" aria-label="Ecrivez ici un message pour expliquer votre projet au photographe"></textarea>
+                            <span class="error" id="message_error"></span>
+
+                        </div>
+                        <button id="form_submit" type="submit" class="contact_button">Envoyer</button>
+                    </form>
+                </div>
             </div>
-            <button id="form_submit" type="submit" class="contact_button">Envoyer</button>
-          </form>
+            <div class="photographer__content2">
+                <!--photo du photographe-->
+            </div>
         </div>
-      </div>
-      <div class="photographer__content2">
-        <!--photo du photographe-->
-      </div>
-    </div>
-    
-    <section class="media__section">
-      <div class="div__sortBy"><p>Trier par</p>
-      <details class="dropDown" data-value="popularity">
-        <summary><span class="value">popularité</span> <i class="fa-solid fa-chevron-down"></i></summary>
-        <div class="options">
-          <div id="sort-by-likes">popularité <i class="fa-solid fa-chevron-up" id="masque"></i></div>
-          <div id="sort-by-date">date</div>
-          <div id="sort-by-title">titre</div>
-        </div>
-      </details></div>
-      <div class="photographer-media"></div>
-    </section>
-    
-  </main>
 
-  <script type="module" src="/scripts/pages/photographer.js"></script>
-  <script type="module" src="/scripts/utils/contactForm.js"></script>
+        <section class="media__section">
+            <div class="div__sortBy">
+                <p>Trier par</p>
+                <details class="dropDown" data-value="popularity">
+                    <summary><span class="value">popularité</span><img class="dropDown__arrow"
+                            src="/assets/icons/dropdown.svg">
+                    </summary>
+                    <div class="options">
+                        <div id="sort-by-likes">popularité</div>
+                        <div id="sort-by-date">date</div>
+                        <div id="sort-by-title">titre</div>
+                    </div>
+                </details>
+            </div>
+            <div class="photographer-media"></div>
+        </section>
+
+    </main>
+
+    <script type="module" src="/scripts/pages/photographer.js"></script>
+    <script type="module" src="/scripts/utils/contactForm.js"></script>
 </body>
 
 </html>

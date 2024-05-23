@@ -15,9 +15,42 @@
 
 .photograph-header {
     background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+    min-height: 300px;
+    margin: 0 100px 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
 }
+
+.header-img {
+    width: 200px;
+    height: 200px;
+    position: relative;
+
+}
+
+.photographer__info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.name__photographer {
+    font-size: 64px;
+    color: rgba(211, 87, 60, 1);
+}
+
+.location__photographer {
+    font-size: 24px;
+    color: rgba(144, 28, 28, 1);
+}
+
+.tagline__photographer {
+    font-size: 18px;
+    color: rgba(82, 82, 82, 1);
+}
+
 
 .contact_button {
     font-size: 20px;
@@ -63,8 +96,11 @@
     font-weight: normal;
     text-align: start;
     margin-bottom: 18px;
+}
 
-
+.close_button {
+    background: none;
+    border: none;
 }
 
 form {
@@ -104,18 +140,9 @@ input[type="email"] {
 }
 
 
-.photograph-header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
 
-.header-img {
-    width: 200px;
-    height: 200px;
-    position: relative;
 
-}
+
 
 
 /* reset CSS */
@@ -129,6 +156,10 @@ input[type="email"] {
 .dropDown {
     position: relative;
     width: 170px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    /* Ensure consistent line height */
 
 }
 
@@ -155,6 +186,7 @@ input[type="email"] {
     width: 100%;
     height: fit-content;
     background: #901C1C;
+    cursor: pointer;
 }
 
 .dropDown>.options>* {
@@ -163,6 +195,14 @@ input[type="email"] {
     text-transform: capitalize;
     display: flex;
     justify-content: space-between;
+    line-height: 1.5;
+    /* Ensure consistent line height */
+
+}
+
+.dropDown>.options>*:hover {
+    background-color: #c74f4f;
+    ;
 }
 
 .dropDown>.options>*::after {
@@ -173,12 +213,27 @@ input[type="email"] {
     bottom: 0;
     left: 20px;
     margin: 0 auto;
-    height: 1px;
+    height: 2px;
+
     background: white;
+    opacity: 0.5;
+
 }
 
 .dropDown>.options>*:last-child::after {
     display: none;
+}
+
+.options {
+    position: relative;
+}
+
+.dropdown__arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    /* Adjust the right position as needed */
+    transform: translateY(-50%);
 }
 
 .photographer__content2 .header-img img {
@@ -199,23 +254,26 @@ form textarea {
 
 /* reset CSS */
 * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-  }
-  
-.media__section{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.media__section {
     display: flex;
     gap: 25px;
     flex-direction: column;
 }
-  .div__sortBy{
+
+.div__sortBy {
     display: flex;
     align-items: center;
     margin: 0 100px;
     gap: 35px;
     z-index: 50;
-  }
+    font-size: 18px;
+    font-weight: 700;
+}
 
 .photographer-media {
     display: flex;
@@ -227,22 +285,25 @@ form textarea {
 
 .media-card {
     width: 350px;
-    border: 5px solid #901C1C;
+    height: 350px;
     border-radius: 20px;
-    height: 400px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden; /* Empêche le contenu de déborder */
+    overflow: hidden;
+    /* Empêche le contenu de déborder */
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .media-container {
-    width: 100%; /* Prend toute la largeur du conteneur parent */
-    height: 100%; /* Prend toute la hauteur du conteneur parent */
-    overflow: hidden; /* Empêche le contenu de déborder */
+    width: 100%;
+    /* Prend toute la largeur du conteneur parent */
+    height: 100%;
+    /* Prend toute la hauteur du conteneur parent */
+    overflow: hidden;
+    /* Empêche le contenu de déborder */
 }
 
 .media-info {
@@ -251,20 +312,35 @@ form textarea {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    height: auto; /* ou une hauteur fixe si nécessaire */
+    height: auto;
+    width: 100%;
+    /* ou une hauteur fixe si nécessaire */
+}
+
+.title{
+    width: 70%;
 }
 
 .media-info span {
-    font-size: 24px; /* Rend le texte plus gras */
-    font-weight: 400; /* Rend le texte plus gras */
-    flex-shrink: 0; /* Empêche les enfants de rétrécir et de sortir du conteneur */
-    white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
-    overflow: hidden; /* Cache le débordement de texte */
-    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte déborde */
-    transition: filter 0.3s ease; /* Transition douce pour le changement de filtre */
+    font-size: 24px;
+    /* Rend le texte plus gras */
+    font-weight: 400;
+    /* Rend le texte plus gras */
+    flex-shrink: 0;
+    /* Empêche les enfants de rétrécir et de sortir du conteneur */
+    white-space: nowrap;
+    /* Empêche le texte de passer à la ligne suivante */
+    overflow: hidden;
+    /* Cache le débordement de texte */
+    text-overflow: ellipsis;
+    /* Ajoute des points de suspension si le texte déborde */
+    transition: filter 0.3s ease;
+    /* Transition douce pour le changement de filtre */
 }
+
 .media-info span:hover {
-    filter: brightness(1.5); /* Augmente la luminosité de 50% lors du survol */
+    filter: brightness(1.5);
+    /* Augmente la luminosité de 50% lors du survol */
 }
 
 
@@ -276,26 +352,33 @@ form textarea {
 }
 
 .media-info .date {
-    display: none; /* Cache l'élément de date */
+    display: none;
+    /* Cache l'élément de date */
 }
 
 .heart-icon {
-    width: 24px ;
+    width: 24px;
     height: 24px;
-    opacity: 0.5; /* Opacité initiale pour l'état non aimé */
-    transition: opacity 0.3s ease; /* Transition douce pour l'opacité */
+    opacity: 0.5;
+    /* Opacité initiale pour l'état non aimé */
+    transition: opacity 0.3s ease;
+    /* Transition douce pour l'opacité */
 }
 
 
 .heart-icon.liked {
-    opacity: 1; /* Opacité pleine lorsque l'icône est aimée */
+    opacity: 1;
+    /* Opacité pleine lorsque l'icône est aimée */
 }
 
 .likes-container {
     display: flex;
-    align-items: center; /* Alignement vertical au centre */
-    justify-content: center; /* Alignement horizontal au centre */
-    gap: 10px; /* Espace entre les éléments */
+    align-items: center;
+    /* Alignement vertical au centre */
+    justify-content: center;
+    /* Alignement horizontal au centre */
+    gap: 10px;
+    /* Espace entre les éléments */
 }
 
 .photographer-bottom-block {
@@ -306,11 +389,12 @@ form textarea {
     padding: 10px 20px;
     color: black;
     font-size: 24px;
-    border-top-left-radius: 5px ;
-    border-top-right-radius: 5px ;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     margin-right: 50px;
 }
-.photographer-price{
+
+.photographer-price {
     margin-left: 20px;
 }
 
@@ -465,3 +549,62 @@ form textarea {
     cursor: pointer;
 }
 
+
+
+@media (max-width: 1200px) {
+
+    .header-img {
+        width: 150px;
+        height: 150px;
+        order: -1;
+    }
+
+    .name__photographer {
+        font-size: 44px;
+        color: rgba(211, 87, 60, 1);
+    }
+
+    .location__photographer {
+        font-size: 16px;
+        color: rgba(144, 28, 28, 1);
+    }
+
+    .tagline__photographer {
+        font-size: 14px;
+        color: rgba(82, 82, 82, 1);
+    }
+
+    .photograph-header {
+        margin: 0 40px 24px;
+    }
+
+    .photographer-media {
+        padding: 0;
+    }
+
+    .media-card{
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .photograph-header {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .photographer__content2 {
+        order: -1;
+    }
+
+    .div__sortBy {
+        justify-content: center;
+        margin: 0;
+    }
+
+    .div__sortBy > p {
+        display: none;
+    }
+}
