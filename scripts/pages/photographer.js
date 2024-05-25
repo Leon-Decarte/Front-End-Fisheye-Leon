@@ -41,12 +41,12 @@ class App {
         // Création du span pour les likes
         const totalLikesSpan = document.createElement('span');
         totalLikesSpan.className = 'totalLikes';
-        totalLikesSpan.textContent = `${this.totalLikes} likes`; // Assurez-vous que this.totalLikes est défini et mis à jour
+        totalLikesSpan.textContent = `${this.totalLikes} likes`; 
 
         // Création du span pour le prix
         const priceSpan = document.createElement('span');
         priceSpan.className = 'photographer-price';
-        priceSpan.textContent = `${this.photographerDatas.price}€ / jour`; // Assurez-vous que this.photographerDatas.price est défini
+        priceSpan.textContent = `${this.photographerDatas.price}€ / jour`;
 
         const heartBlack = document.createElement('span');
         heartBlack.className = 'heart-black';
@@ -57,18 +57,9 @@ class App {
         bottomBlock.appendChild(priceSpan);
 
         // Ajout du bloc inférieur au corps du document ou à un autre élément parent
-        document.body.appendChild(bottomBlock); // Vous pouvez remplacer `document.body` par un autre conteneur si nécessaire
+        document.body.appendChild(bottomBlock); 
 
 
-        /* 
-            const photographersSection = document.querySelector(".photographer_section");
-    
-            photographersJson.forEach(element => {
-                const photographer=new Photographer(element);
-                const photographerTemplate=new PhotographerTemplate(photographer);
-                photographersSection.appendChild(photographerTemplate.render());
-            });
-            */
         const likesCalculator = new PhotographerLikesCalculator(this.mediasDatas);
         await likesCalculator.init();
     }
@@ -125,44 +116,3 @@ class App {
 const app = new App();
 await app.init();
 
-
-//(new MediaFactory(mediaData)).getMedia()
-
-//const mediaFactory=new MediaFactory(mediaData)
-//mediaFactory.getMedia();
-/*
-const photographHeader = document.createElement('div');
-photographHeader.classList.add('photograph-header');
-
-const titleH1 = document.createElement('h1');
-titleH1.classList.add('title');
-titleH1.textContent = 'Mimi Keel';
-
-const locationP = document.createElement('p');
-locationP.classList.add('location');
-locationP.textContent = 'London, UK';
-
-const taglineP = document.createElement('p');
-taglineP.classList.add('tagline');
-taglineP.textContent = 'Voir le beau dans le quotidien';
-
-photographHeader.appendChild(titleH1);
-photographHeader.appendChild(locationP);
-photographHeader.appendChild(taglineP);
-
-document.body.appendChild(photographHeader);
-
-const button = document.createElement('button');
-
-
-const img = document.createElement('img');
-
-img.setAttribute('id', 'about-photographer-img');
-img.setAttribute('src', 'assets/photographers/MimiKeel.jpg');
-img.setAttribute('width', '200px');
-img.setAttribute('height', '200px');
-
-document.body.appendChild(img);
-
-photographHeader.appendChild(img)
-*/

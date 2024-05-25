@@ -1,18 +1,12 @@
 
+import { MediaModel } from "./MediaModel.js";
 
-export class VideoModel {
+export class VideoModel  extends MediaModel {
 
     constructor(datas,photographerModel) {
-        const {id, photographerId, title, video, likes, date, price}=datas;
-
-        this.id= id;
-        this.photographerId= photographerId;
-        this.title= title;
-        this.video= video;
-        this.likes= likes;
-        this.date= date;
-        this.price= price;
-        this.url = `./assets/photographers/${photographerModel.getFirstName()}/${video}`;
+        super(datas)
+        this.video= datas.video;
+        this.url = `./assets/photographers/${photographerModel.getFirstName()}/${datas.video}`;
     }
 
     getRenderMedia () {

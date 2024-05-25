@@ -2,7 +2,7 @@ export class DropDown {
     constructor(photographer) {
         this.photographer = photographer;
         this.setupEventListeners();
-    }
+    }   
 
     setupEventListeners() {
         const sortByLikesButton = document.getElementById('sort-by-likes');
@@ -45,7 +45,7 @@ export class DropDown {
                 this.sortBy('popularity');
             updateDisplayedValue('popularité');
             reorderOptions('sort-by-likes');
-            closeDropdown();n
+            closeDropdown();
             }
         });
 

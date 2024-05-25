@@ -18,14 +18,7 @@ export class ContactForm {
 
 		const message = document.getElementById("message")
 		message.addEventListener("keyup", (e) => { this.checkForm(e); })
-		/*
-				this.checkFirstName();
-				this.checkLastName();
-				this.checkEmail();
-				this.checkForm();
-				this.initForm();
-		
-		*/
+
 		const contactButton = document.querySelector(".contact_button");
 		const closeButton = document.querySelector(".close_button");
 		const ValidateButton = document.getElementById("form_submit")

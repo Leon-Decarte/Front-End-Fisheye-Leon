@@ -15,8 +15,15 @@ export class MediaTemplate {
         const mediaContainer = document.createElement('div');
         mediaContainer.classList.add('media-container');
 
+        
         const media = this.mediaModel.getRenderMedia();
+        media.tabIndex = 0; // Make the media-card focusable
         media.addEventListener('click', (e) => { this.lightbox.open(e, this.mediaModel.id) });
+        media.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            this.lightbox.open(e, this.mediaModel.id); // Open the lightbox when Enter key is pressed
+        }
+    });
         mediaContainer.appendChild(media); // Ajouter le média dans le conteneur d'encapsulation
         div.appendChild(mediaContainer); // Ajouter le conteneur d'encapsulation au div principal
 

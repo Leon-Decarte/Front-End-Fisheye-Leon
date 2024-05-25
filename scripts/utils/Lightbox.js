@@ -13,7 +13,7 @@ export class Lightbox {
                 this.right(); // Appeler la fonction de défilement vers la droite
             }
         });
-        
+
         this.medias = medias;
         this.photographerModel = photographerModel;
         this.index = 0;
@@ -26,6 +26,8 @@ export class Lightbox {
         this.closeLightbox = document.createElement('div');
         this.closeLightbox.classList.add('closeLightbox');
         const closeIcon = document.createElement('img');
+        closeIcon.tabIndex = 0;
+
         closeIcon.src = "../../assets/icons/close.svg";
         closeIcon.alt = "close";
         closeIcon.classList.add('closeIcon');
@@ -43,6 +45,8 @@ export class Lightbox {
         this.prevButton.classList.add('button_prev');
 
         const prevIcon = document.createElement('img');
+        prevIcon.tabIndex = 0;
+
         prevIcon.src = "../../assets/icons/left.svg";
         prevIcon.alt = 'previous';
         prevIcon.classList.add('prevIcon');
@@ -59,6 +63,7 @@ export class Lightbox {
         this.nextButton = document.createElement('div');
         this.nextButton.classList.add('button_next');
         const nextIcon = document.createElement('img');
+        nextIcon.tabIndex = 0;
         nextIcon.src = "../../assets/icons/right.svg";
         nextIcon.alt = 'next';
         nextIcon.classList.add('nextIcon');
@@ -70,8 +75,8 @@ export class Lightbox {
 
         // Ajouter le bouton suivant à la lightbox
         this.lightbox.appendChild(this.nextButton);
-        
 
+                
     }
     showOneMedia(index) {
         // Nettoyer le contenu existant de la lightbox
@@ -86,10 +91,10 @@ export class Lightbox {
 
         // Ajouter la div contenant le média à la lightbox
         this.lightbox.appendChild(mediaContainer);
-            // Réafficher les boutons dans la lightbox
-    this.lightbox.appendChild(this.prevButton);
-    this.lightbox.appendChild(this.nextButton);
-    this.lightbox.appendChild(this.closeLightbox);
+        // Réafficher les boutons dans la lightbox
+        this.lightbox.appendChild(this.prevButton);
+        this.lightbox.appendChild(this.nextButton);
+        this.lightbox.appendChild(this.closeLightbox);
 
     }
 
