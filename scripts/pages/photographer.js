@@ -9,7 +9,7 @@ import { ContactForm } from "../utils/contactForm.js";
 import { Lightbox } from "../utils/lightbox.js";
 import { DropDown } from '../utils/dropDown.js'; 
 
-import { PhotographerLikesCalculator } from '../utils/likesManager.js';
+import { likesManager } from '../utils/likesManager.js';
 
 class App {
     constructor() {
@@ -60,7 +60,7 @@ class App {
         document.body.appendChild(bottomBlock); 
 
 
-        const likesCalculator = new PhotographerLikesCalculator(this.mediasDatas);
+        const likesCalculator = new likesManager(this.mediasDatas);
         await likesCalculator.init();
     }
 
@@ -81,9 +81,6 @@ class App {
         //medias
         this.renderMedia(this.mediasDatas,this.photographerModel);
 
-
-
-        //light
     }
 
     renderMedia(medias, photographerModel) {

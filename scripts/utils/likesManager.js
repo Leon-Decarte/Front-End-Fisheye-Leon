@@ -1,5 +1,5 @@
 /* Update the PhotographerLikesCalculator class in likesManager.js to handle both click and key press on the heart icon */
-export class PhotographerLikesCalculator {
+export class likesManager {
     constructor(mediasDatas) {
         this.mediasDatas = mediasDatas;
     }

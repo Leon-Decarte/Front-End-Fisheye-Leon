@@ -26,9 +26,9 @@ export class Lightbox {
         this.closeLightbox = document.createElement('div');
         this.closeLightbox.classList.add('closeLightbox');
         const closeIcon = document.createElement('img');
-        closeIcon.tabIndex = 0;
+        closeIcon.tabIndex = 1;
 
-        closeIcon.src = "../../assets/icons/close.svg";
+        closeIcon.src = "./assets/icons/close.svg";
         closeIcon.alt = "close";
         closeIcon.classList.add('closeIcon');
         this.closeLightbox.appendChild(closeIcon);
@@ -38,16 +38,16 @@ export class Lightbox {
 
         this.closeLightbox.addEventListener('click', () => {
             this.close();
-        });
+        }); 
 
         // Créer une div pour contenir le bouton de précédent
         this.prevButton = document.createElement('div');
         this.prevButton.classList.add('button_prev');
 
         const prevIcon = document.createElement('img');
-        prevIcon.tabIndex = 0;
+        prevIcon.tabIndex = 1;
 
-        prevIcon.src = "../../assets/icons/left.svg";
+        prevIcon.src = "./assets/icons/left.svg";
         prevIcon.alt = 'previous';
         prevIcon.classList.add('prevIcon');
         this.prevButton.appendChild(prevIcon);
@@ -63,8 +63,8 @@ export class Lightbox {
         this.nextButton = document.createElement('div');
         this.nextButton.classList.add('button_next');
         const nextIcon = document.createElement('img');
-        nextIcon.tabIndex = 0;
-        nextIcon.src = "../../assets/icons/right.svg";
+        nextIcon.tabIndex = 1;
+        nextIcon.src = "./assets/icons/right.svg";
         nextIcon.alt = 'next';
         nextIcon.classList.add('nextIcon');
         this.nextButton.appendChild(nextIcon);
@@ -116,6 +116,7 @@ export class Lightbox {
     }
 
     open(e, idMedia) {
+        
         console.log(idMedia);
         e.preventDefault();
 
@@ -126,22 +127,9 @@ export class Lightbox {
             this.lightbox.appendChild(this.prevButton);
             this.lightbox.appendChild(this.nextButton);
             this.lightbox.appendChild(this.closeLightbox);
-
-            //showOneMedia();
         }
 
-        // getIndex oh media in medias
 
-        //affichage du media
-
-        //display block
-
-        /*        const index = this.medias.findIndex(media => media.id === idMedia);
-                if (index !== -1) {
-                    this.index = index;
-                    this.showOneMedia(index);
-                    this.lightbox.style.display = 'block';}
-            }*/
     }
 
     close() {

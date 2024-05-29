@@ -8,7 +8,6 @@ export class MediaTemplate {
     renderCard() {
         const div = document.createElement('div');
         div.classList.add('media-card');
-        div.tabIndex = 0; // Make the media-card focusable
 
 
         // Créer un div pour encapsuler le média
@@ -17,15 +16,16 @@ export class MediaTemplate {
 
         
         const media = this.mediaModel.getRenderMedia();
-        media.tabIndex = 0; // Make the media-card focusable
+        media.tabIndex = ''; 
         media.addEventListener('click', (e) => { this.lightbox.open(e, this.mediaModel.id) });
         media.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            this.lightbox.open(e, this.mediaModel.id); // Open the lightbox when Enter key is pressed
+            this.lightbox.open(e, this.mediaModel.id); 
         }
     });
-        mediaContainer.appendChild(media); // Ajouter le média dans le conteneur d'encapsulation
-        div.appendChild(mediaContainer); // Ajouter le conteneur d'encapsulation au div principal
+    
+        mediaContainer.appendChild(media);
+        div.appendChild(mediaContainer); 
 
         const infoContainer = document.createElement('div');
         infoContainer.classList.add('media-info');
@@ -42,14 +42,16 @@ export class MediaTemplate {
         likes.classList.add('media-likes');
         likes.innerHTML = this.mediaModel.likes;
         likesContainer.appendChild(likes);
+        
 
         const heartIcon = document.createElement('img');
-        heartIcon.tabIndex = 0;
-        heartIcon.src = '../assets/icons/heart.svg';
+        heartIcon.tabIndex = "";
+        heartIcon.src = './assets/icons/heart.svg';
         heartIcon.alt = 'Heart';
         heartIcon.dataset.id = this.mediaModel.id;
         heartIcon.classList.add('heart-icon');
         likesContainer.appendChild(heartIcon);
+        heartIcon.setAttribute('aria-label', 'Like'); // Add aria-label to heart icon
 
         // Variable pour suivre si le cœur a déjà été cliqué
         let isLiked = false;
@@ -67,4 +69,6 @@ export class MediaTemplate {
 
         return div;
     }
+
+    
 }

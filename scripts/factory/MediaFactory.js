@@ -15,6 +15,4 @@ export class MediaFactory {
             return new VideoModel(this.media,this.photographerModel);
         }
     }
-
-
 }

@@ -7,21 +7,21 @@ export class DropDown {
     setupEventListeners() {
         const sortByLikesButton = document.getElementById('sort-by-likes');
         sortByLikesButton.classList.add('sort__option');
-        sortByLikesButton.tabIndex = 0; // Add tabindex to sortByLikesButton
+        sortByLikesButton.tabIndex = ""; 
     
         const sortByDateButton = document.getElementById('sort-by-date');
         sortByDateButton.classList.add('sort__option');
-        sortByDateButton.tabIndex = 0; // Add tabindex to sortByDateButton
+        sortByDateButton.tabIndex = ""; 
     
         const sortByTitleButton = document.getElementById('sort-by-title');
         sortByTitleButton.classList.add('sort__option');
-        sortByTitleButton.tabIndex = 0; // Add tabindex to sortByTitleButton
+        sortByTitleButton.tabIndex = ""; 
         const detailsElement = document.querySelector('.dropDown');
         const valueElement = document.querySelector('.dropDown summary .value');
         const optionsContainer = document.querySelector('.dropDown .options');
 
         const closeDropdown = () => {
-            detailsElement.removeAttribute('open'); // Close the dropdown
+            detailsElement.removeAttribute('open'); 
         };
 
         const updateDisplayedValue = (newValue) => {
@@ -83,7 +83,7 @@ export class DropDown {
     sortBy(choiceFilter) {
         // Clear existing content before rendering sorted content
         const mediaContainer = document.querySelector('.photographer-media');
-        mediaContainer.innerHTML = ''; // Clear the existing content
+        mediaContainer.innerHTML = ''; 
 
         switch (choiceFilter) {
             case "popularity":

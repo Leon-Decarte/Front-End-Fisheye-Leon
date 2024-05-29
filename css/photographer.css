@@ -1,3 +1,5 @@
+
+
 .logo{
     margin-top: 24px;
     margin-bottom: 24px;
@@ -289,8 +291,7 @@ input[type="email"] {
     position: absolute;
     top: 50%;
     right: 10px;
-    /* Adjust the right position as needed */
-    transform: translateY(-50%);
+
 }
 
 .photographer__content2 .header-img img {
@@ -357,11 +358,8 @@ form textarea {
 
 .media-container {
     width: 100%;
-    /* Prend toute la largeur du conteneur parent */
     height: 100%;
-    /* Prend toute la hauteur du conteneur parent */
     overflow: hidden;
-    /* Empêche le contenu de déborder */
 }
 
 .media-info {
@@ -380,20 +378,15 @@ form textarea {
 }
 
 .media-info span {
-    font-size: 24px;
-    /* Rend le texte plus gras */
+    font-size: 20px;
     font-weight: 400;
-    /* Rend le texte plus gras */
     flex-shrink: 0;
-    /* Empêche les enfants de rétrécir et de sortir du conteneur */
     white-space: nowrap;
-    /* Empêche le texte de passer à la ligne suivante */
     overflow: hidden;
-    /* Cache le débordement de texte */
     text-overflow: ellipsis;
-    /* Ajoute des points de suspension si le texte déborde */
     transition: filter 0.3s ease;
-    /* Transition douce pour le changement de filtre */
+    line-height: 24px;
+
 }
 
 .media-info span:hover {
@@ -488,7 +481,7 @@ form textarea {
     width: 100vw;
     /* Couvrir toute la largeur de la vue */
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(255, 255, 255, 0.7);
     /* Semi-transparent black background */
     z-index: 9999;
     /* Ensure it's above other elements */

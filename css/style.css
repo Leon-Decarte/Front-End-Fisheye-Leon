@@ -9,6 +9,12 @@ body {
     padding: 0 100px;
 }
 
+/* Global focus style */
+:focus {
+    outline: none; /* Remove default outline */
+    border: 2px solid rgb(255, 94, 0); /* Add a custom border */
+    box-shadow: 0 0 5px 2px rgb(255, 94, 0)    ; /* Add a custom box-shadow */
+}
 
 .header__photographers {
     display: flex;
